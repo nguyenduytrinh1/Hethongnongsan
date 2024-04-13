@@ -1,0 +1,95 @@
+﻿
+@model List<Hethongnongsan.Models.Sanpham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+}
+
+<section class="home" id="home">
+    <div class="content">
+        <h3>Nông sản sạch</h3>
+        <p>
+            Nông sản sạch mang lại nhiều lợi ích đối với sức khỏe, môi trường và kinh tế. 
+            Chúng không chỉ đảm bảo an toàn thực phẩm bằng việc loại bỏ các hóa chất độc hại, mà còn giảm ô nhiễm môi trường và bảo vệ sinh thái.
+            Đồng thời, việc tiêu thụ nông sản sạch cũng tăng cường sức khỏe với lượng chất dinh dưỡng cao hơn và giảm nguy cơ mắc bệnh. 
+        </p>
+    </div>
+</section>
+<!--<section class="features" id="features">
+    <h1 class="heading">our <span>features</span></h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="" alt="">
+            <h3>fresh and organic</h3>
+            <p>sssssssssssss</p>
+            <a href="" class="btn"></a>
+        </div>
+    </div>
+</section>
+-->
+@*<section class="categories" id="categories">
+        <h1 class="heading">proct<span>categories</span></h1>
+        @{
+            int lenght = Model.Count / 3;
+            int k = 0;
+        }
+        @for (int i = 1; i <= @lenght; i++)
+        {
+            <div class="box-container">
+                    @for (int z = k; z <= i * 3; z++)
+                    {
+                        if (z == Model.Count - 1)
+                        {
+                            break;
+                        }
+                    <div class="box">
+                        <img src="" alt="">
+                        <h3>dd</h3>
+                        <p>up to 45% off</p>
+                        <a href="" class="btn">shop now</a>
+                    </div>
+                    }
+                    }
+                </div>
+            k = k + 2;
+        }
+    </section>*@
+@{
+    int z = (Model.Count / 16) + 1;
+    int c = 0;
+}
+<h1 class="heading" style="margin-left:550px">Sản phẩm<span>Thể loại</span></h1>
+ @{ if (@Model.Count > 0)
+     {
+         for (int i = 1; i <= z; i++)
+         {
+            <section class="categories page" id="page@{@i} ">
+                <div class="box-container">
+                    @for (int k = c; k < i * 16; k++)
+                    {
+                        if (k == Model.Count)
+                        {
+                            break;
+                        }
+
+                        <div class="box" style="width:400px">
+                            <img src="~/img/@Model[k].Linkhinhanh " alt="Product Image">
+                            <h3 class="namesp" data-product-name="@Model[k].Idsanpham">@Model[k].Tensanpham</h3>
+                            <p class="contents" style="height:50px; margin-bottom:10px;">@Model[k].Gioithieu</p>
+                            <p>$@Model[k].Gia</p>
+                            <p class="idsp" style="display:none"></p>
+                            <a style="font-size:10px" href="/Products/prod?idsp=@Model[k].Idsanpham" class="btn">add shopcart now</a>
+                        </div>
+
+                    }
+                </div>
+            </section>
+                c = c + 16;
+            }
+        }
+else
+            {
+                <h1> Khong con san pham nao</h1>
+            }
+    }
+

@@ -1,0 +1,193 @@
+﻿@{ 
+    ViewBag.idnguoidung = Request.Cookies["nguoidung"]?.Value.Replace("=", ""); ;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous">
+    <link href="~/fontawesome-free-6.5.1-web/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/Home.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="~/Content/Product.css">
+    <link href="~/App_Start/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/Profilesuser.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="~/App_Start/vendor/css/background.css" >
+    <link rel="stylesheet" href="~/App_Start/vendor/css/owl.css">
+    <link rel="stylesheet" href="~/App_Start/vendor/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+</head>
+<body>
+    <header class="header">
+        <a class="logo"><i class="fas fa-shopping-backet">2xtd</i></a>
+        <nav class="navbar">
+            <a href="/Home/Index">Home</a>
+            <a href="/Shops/Index/@ViewBag.idnguoidung">Cửa hàng của bạn</a>
+            <a href="/Products/Detail/@ViewBag.idnguoidung">Giỏ hàng</a>
+            <a href="/Profilesuser/Index/@ViewBag.idnguoidung">Hồ sơ</a>
+            <a href="/Forum/addForum">blogs</a>
+        </nav>
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn" onclick="searchme()"></div>
+            <div class="fas fa-cart-shopping" id="cart-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" name="" id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="./vn-50009109-ac952238b07067e0062e561add556149_xhdpi.jpg" style="height: 100px;width: 150px;" alt="">
+                <div class="content">
+                    <h3>wart</h3>
+                    <span class="price">11</span>
+                    <span class="quantity">qtt 1</span>
+                </div>
+            </div>
+            <div class="total">total 11</div>
+            <!-- SUA DOI-->
+            <a href="/Products/Detail/@ViewBag.idnguoidung" class="btn">check</a>
+        </div>
+        <form action="" class="login-form">
+            <h3>Login now</h3>
+            <input type="email" placeholder="your email" class="box">
+            <input type="password" placeholder="your password" class="box">
+            <p style="text-decoration: none;">Quên mật khẩu của bạn <a style="color: #ff7800; text-decoration: none;">click here</a></p>
+            <p style="text-decoration: none;">Bạn không có tài khoản? <a style="color: #ff7800; text-decoration: none;" href="">create now</a></p>
+            <a href="/Login/Index/out">log out</a>
+        </form>
+    </header>
+    <div>@RenderBody()</div>
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3 style="text-align:center">3td <i class="fas fa-shopping-basket"></i></h3>
+                <p style="text-align:center">sdasdas</p>
+                <div class="share" style="text-align:center">
+                    <a style="display: block !important;padding: 10px; padding-left: 0;" href="" class="fab fa-facebook-f"></a>
+                    <a style="display: block !important;padding: 10px; padding-left: 0;" href="" class="fab fa-twitter"></a>
+                    <a style="display: block !important;padding: 10px; padding-left: 0;" href="" class="fab fa-instagram"></a>
+                    <a style="display: block !important;padding: 10px; padding-left: 0;" href="" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3 style="text-align:center">contact infor</h3>
+                <a style="display: block !important;margin-left:90px; padding: 10px; padding-left: 0;" href="" class="fas fa-phone" >111</a>
+                <a style="display: block !important; margin-left: 90px; padding: 10px; padding-left: 0; " href="" class="fas fa-phone">11</a>
+                <a style="display: block !important; margin-left: 90px; padding: 10px; padding-left: 0; " href="" class="fas fa-envelope">11</a>
+                <a style="display: block !important; margin-left: 90px; padding: 10px; padding-left: 0; " href="" class="fas fa-map-marker-alt">11</a>
+            </div>
+            <div class="box">
+                <h3 style="text-align:center">quick link</h3>
+                <a style="display: block !important;padding: 10px; padding-left: 0;" href="" class="fas fa-arrow-right">home</a>
+                <a style="display: block !important;padding: 10px; padding-left: 0;" href="" class="fas fa-arrow-right">features</a>
+                <a style="display: block !important;padding: 10px; padding-left: 0;" href="" class="fas fa-arrow-right">products</a>
+                <a style="display: block !important;padding: 10px; padding-left: 0;" href="" class="fas fa-arrow-right">categories</a>
+                <a style="display: block !important;padding: 10px; padding-left: 0;" href="" class="fas fa-arrow-right">review</a>
+            </div>
+            <div class="box">
+                <h3 style="text-align:center">newletter</h3>
+                <p >sub</p>
+                <input type="email" class="email">
+                <input type="submit" class="btn">
+                <img src="" alt="" class="payment-img">
+            </div>
+        </div>
+    </section>
+    <script src="~/Content/Home.js"></script>
+    <script src="~/App_Start/vendor/jquery/jquery.min.js"></script>
+    <script src="~/App_Start/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/App_Start/vendor/js/isotope.min.js"></script>
+    <script src="~/App_Start/vendor/js/owl-carousel.js"></script>
+    <script src="~/App_Start/vendor/js/counter.js"></script>
+    <script src="~/App_Start/vendor/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".product-slider", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 7500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                0: {
+                    slidesPreView: 1,
+                },
+                768: {
+                    slidesPreView: 2,
+
+                },
+                1020: {
+                    slidesPreView: 3,
+
+                },
+            },
+        });
+        // Khai báo các biến cần thiết
+        let currentPage = 1;
+        const itemsPerPage = 16;
+        const pages = document.querySelectorAll('.page');
+        const pagination = document.getElementById('pagination');
+
+        function showPage(pageNumber) {
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+            console.log(pageNumber);
+            pages[pageNumber - 1].style.display = '';
+
+        }
+
+        function changePage(pageNumber) {
+            currentPage = pageNumber;
+            showPage(currentPage);
+        }
+
+        // Generate pagination buttons
+        for (let i = 1; i <= pages.length; i++) {
+            const button = document.createElement('button');
+            button.textContent = i;
+            button.addEventListener('click', () => changePage(i));
+            pagination.appendChild(button);
+        }
+
+        showPage(currentPage);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var content = document.getElementsByClassName("contents");
+            var contentsp = document.getElementsByClassName("namesp");
+            for (var i = 0; i < content.length; i++) {
+                var productName = parseInt(contentsp[i].dataset.productName);
+                var text = content[i].innerText;
+                if (text.length > 20) {
+                    var shortenedText = text.substring(0, 20) + "...";
+                    content[i].innerHTML = shortenedText + '<a href="/Products/prod?idsp=' + productName + '" onclick="expandContent()">Xem thêm</a>';
+                    console.log(shortenedText)
+                }
+            }
+        });
+
+        function expandContent() {
+            var content = document.getElementById("content");
+            var text = content.innerText;
+            content.innerHTML = "<p>" + text + "</p>";
+        }
+
+    </script>
+</body>
+</html>

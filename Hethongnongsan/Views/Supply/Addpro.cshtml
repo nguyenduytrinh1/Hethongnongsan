@@ -1,0 +1,35 @@
+﻿@Model Hethongnongsan.Models.Nguoidung
+@{
+    ViewBag.Title = "Addpro";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+}
+<div style="margin-top: 100px; display: flex; justify-content: center; margin-bottom:100px">
+    <form action="/Supply/Addpro/@ViewBag.id" method="post" style="width: 400px; padding: 20px; border: 1px solid #ccc; border-radius: 8px;" enctype="multipart/form-data">
+        <input type="hidden" name="Idshop" value="@Model.Idshop" />
+        <div style="margin-bottom: 10px;">
+            <label for="Tensanpham">Tên sản phẩm</label>
+            <input type="text" name="Tensanpham" class="form-control" style="width: 100%; padding: 8px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc;" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="Tenloai">Tên loại</label>
+            <input type="text" name="Tenloai" class="form-control" style="width: 100%; padding: 8px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc;" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="Gioithieu">Giới thiệu</label>
+            <input type="text" name="Gioithieu" class="form-control" style="width: 100%; padding: 8px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc;" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="Gia">Giá</label>
+            <input type="text" name="Gia" class="form-control" style="width: 100%; padding: 8px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc;" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="imageFile">Link ảnh</label>
+            <input type="file" name="imageFile" class="form-control" style="width: 100%; padding: 8px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc;" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="nameimg">Link ảnh</label>
+            <input type="text" name="nameimg" class="form-control" style="width: 100%; padding: 8px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc;" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">Thêm</button>
+    </form>
+</div>

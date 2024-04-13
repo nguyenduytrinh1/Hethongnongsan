@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "newShop";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+}
+
+<div class="main-banner">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6 align-self-center">
+                <div class="caption header-text" style="display:flex">
+                    <div>
+                        <form action="/Shops/newShop/@ViewBag.id" method="post" style="margin-top:100px;margin-left:200px">
+                            <input type="hidden" name="Idshop" />
+                            <input type="hidden" name="Idchusohuu" value="@ViewBag.id" />
+                            <div style="display:flex;">
+                                <div>
+
+                                    <div>
+                                        <label>
+                                            Tên shop
+                                        </label>
+                                        <input type="text" name="Tenshop" />
+                                    </div>
+                                    <div>
+                                        <label>
+                                            Ngày thành lập
+                                        </label>
+                                        <input type="text" name="Ngaythanhlap" />
+                                    </div>
+                                    <div>
+                                        <label>
+                                            Giới thiệu
+                                        </label>
+                                        <input type="text" name="Gioithieu" />
+                                    </div>
+                                    <div>
+                                        <label>
+                                            Logo
+                                        </label>
+                                        <input type="text" name="Logo" />
+                                    </div>
+                                    <div>
+                                        <label>
+                                            Địa chỉ
+                                        </label>
+                                        <input type="text" name="Diachi" />
+                                    </div>
+                                </div>
+                                <div style="margin-left:100px">
+                                    <div>
+                                        <label>
+                                            SỐ điện thoại
+                                        </label>
+                                        <input type="text" name="Sdt" />
+                                    </div>
+                                    <div>
+                                        <label>
+                                            email
+                                        </label>
+                                        <input type="text" name="Email" />
+                                    </div>
+                                    <div>
+                                        <label>
+                                            face
+                                        </label>
+                                        <input type="text" name="Facebook" />
+                                    </div>
+                                    <div>
+                                        <label>
+                                            ins
+                                        </label>
+                                        <input type="text" name="Instagram" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" style="margin-top:300px;">Create Shop</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-2">
+                    <div class="right-image">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section trending">
+    <div class="container">
+        <ul class="trending-filter">
+            <li>
+
+            </li>
+
+            <li>
+
+            </li>
+
+
+        </ul>
+
+        <div class="row trending-box">
+
+
+            <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6">
+                <div class="item">
+                    <div class="thumb">
+
+
+                    </div>
+                    <div class="down-content">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li><a href="#"> &lt; </a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a class="is_active" href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#"> &gt; </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

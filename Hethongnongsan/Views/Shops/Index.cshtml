@@ -1,0 +1,206 @@
+﻿@model Hethongnongsan.Models.Shop
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+    ViewBag.idnguoidung = Request.Cookies["nguoidung"]?.Value.Replace("=", "");
+}
+<!-- ***** Preloader Start ***** -->
+<h1>@ViewBag.Message</h1>
+<div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- ***** Header Area End ***** -->
+@{ if (Model != null && @ViewBag.nguoidung != null)
+    {
+
+        if (ViewBag.sanpham == null)
+        {
+            <div class="main-banner">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-lg-6 align-self-center">
+                            <div class="caption header-text" style="display:flex">
+                                <h1>Hiện bạn không có sản phẩm nào</h1>
+                                <a href="/Shops/newShop/@ViewBag.nguoidung.Idnguoidung" style="color: white">Hãy thêm sản phẩm</a>
+                            </div>
+                            <div class="col-lg-4 offset-lg-2">
+                                <div class="right-image">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section trending">
+                <div class="container">
+                    <ul class="trending-filter">
+                        <li>
+
+                        </li>
+
+                        <li>
+
+                        </li>
+
+
+                    </ul>
+
+                    <div class="row trending-box">
+
+
+                        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6">
+                            <div class="item">
+                                <div class="thumb">
+
+
+                                </div>
+                                <div class="down-content">
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="pagination">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+        else
+        {
+
+            <div style="margin-top:100px; margin-left:600px">
+                <div>
+                    <h1 style="padding-bottom:50px; margin-left:-20px">Chào Mừng bạn đến shop</h1>
+                    <div style="font-size:60px;font-family:Cambria">@Model.Tenshop</div>
+
+                </div>
+                <div style="font-size:10px;font-family:Bahnschrift ;margin-left:-350px;width:1000px ">
+                    <div style="margin-left: 250px; width: 1000px "> 🌱 Chào mừng đến với "Xanh Tươi" - Nơi Tận Hưởng Sự Tươi Mát Của Nông Sản 🌱</div><br />
+
+                    Tại "Xanh Tươi", chúng tôi tự hào là điểm đến hàng đầu cho những ai yêu thích và quan tâm đến chất lượng của các sản phẩm nông sản. Với cam kết mang lại sự tươi mới và độ ẩm tự nhiên cho mỗi sản phẩm, chúng tôi đang dần khẳng định vị thế của mình là điểm đến uy tín và đáng tin cậy cho mọi nhu cầu dinh dưỡng và sức khỏe.p
+                </div>
+
+
+                <div class="row" style="margin-left:5%; font-size:10px; margin-top:80px">
+                    <h2> Chủ sở hữu:  @ViewBag.nguoidung.Tennguoidung</h2>
+                    <div class="col-lg-6 align-self-center">
+                        <div class="caption header-text" style="display:flex">
+                            <div>
+                                <div style="padding: 10px; text-align: left ;font-family:'Lucida Sans'"> 🥦 Ngay Thanh lap  > @Model.Ngaythanhlap</div>
+
+                                <div style="padding: 10px; text-align: left; font-family: 'Lucida Sans'">🥦 Dia chi > @Model.Diachi</div>
+
+                                <div style="padding: 10px; text-align: left; font-family: 'Lucida Sans' ">🥦 So dien thoai > @Model.Sdt</div>
+
+                                <hdiv4 style="padding: 10px; text-align: left; font-family: 'Lucida Sans' ">🥦 Email > @Model.Email</hdiv4>
+
+                                <div style="padding: 10px; text-align: left; font-family: 'Lucida Sans' "> 🥦 Facebook > @Model.Facebook</div>
+
+                                <div style="padding: 10px; text-align: left; font-family: 'Lucida Sans' "> 🥦 Instagram > @Model.Instagram</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 offset-lg-2">
+                        <div class="right-image">
+                            <img>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section trending">
+                <a href="/Supply/Addpro/@ViewBag.nguoidung.Idnguoidung" style="color: black; padding:10px;padding-right:500px;padding-left:500px;border-radius:10px;margin-left:200px; font-size:15px;font-weight:700; background-color:chocolate">Thêm sản phẩm</a>
+                <div class="container" style="margin-top:50px">
+                    <ul class="trending-filter">
+                        <li>
+
+                        </li>
+                        @{if (ViewBag.sanpham.Count == 0)
+                            {
+
+                                <a href="/Supply/Addpro/@ViewBag.nguoidung.Idnguoidung" style="color: black">Hay them san pham cua rieng ban nao</a>
+
+                            }
+                            else
+                            {
+                                foreach (var item in ViewBag.sanpham)
+                                {
+                                    <li>
+                                        <a class="is_active" href="#!" data-filter=".@item.Tenloai">@item.Tenloai</a>
+                                    </li>
+                                }
+                            }
+                        }
+
+
+                    </ul>
+
+                    <div class="row trending-box">
+                        @{ foreach (var item in ViewBag.sanpham)
+                            {
+                                <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 @item.Tenloai" style="border:1px solid #808080;border-radius:10px;margin:2px;background-color:">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <a href="product-details.html"><img src="~/img/@item.Linkhinhanh" style="height:315px" alt=""></a>
+                                            <span class="price"><em>$36</em>$@item.Gia</span>
+                                        </div>
+                                        <div class="down-content">
+                                            <div style="font-size:30px;font-weight:800;background-color:;border-radius:5px;"> @item.Tensanpham</div>
+                                            <span class="category" style="font-size:10px;margin-left:20px"> Tên loại: @item.Tenloai</span>
+
+
+                                        </div>
+                                        <div style="margin-left:40px">
+                                            <a href="/Supply/Editpro/@item.Idsanpham" style="padding:7px;border:15px;border-radius:10px;background-color:orange">Edit sản phẩm</a>
+                                            <a href="/Supply/Deletepro?idsp=@item.Idsanpham&idshop=@item.Idshop" style="margin-top: 20px;margin-left:30px; padding: 7px; border: 15px; border-radius: 10px; background-color: darkgray">Xóa sản phẩm</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul>
+                                <li><a href="/Shops/Delete/@ViewBag.idnguoidung" style="color:black"> Xóa Shop</a></li>
+                                <li><a href="/Shops/Edit/@ViewBag.idnguoidung" style="color:black"> Sửa Shop</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div style="margin-top:200px; background-image:url(../../img/store-not-found.png); width:100%; background-size:500px;background-repeat:no-repeat;height:500px; margin-left:500px">
+            0
+        </div>
+
+        <a style="color:black; font-size:25px;font-weight:600;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;margin-left:520px" href="/Shops/newShop/@ViewBag.nguoidung.Idnguoidung">🛒 Nhấn vào đây để tạo shop riêng cho bạn</a>
+
+        <div style="margin-bottom:100px"></div>
+    }
+}
+
+

@@ -1,0 +1,36 @@
+﻿@model Hethongnongsan.Models.Sanpham
+@{
+    ViewBag.Title = "Editpro";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+}
+
+<form action="/Supply/Editpro/@Model.Idsanpham" method="post" style="margin-top: 100px; margin-left: 650px; margin-bottom: 100px;" enctype="multipart/form-data">
+    <input type="hidden" name="Idshop" value="@Model.Idshop" />
+    <input type="hidden" name="Idsanpham" value="@Model.Idsanpham" />
+    <div style="margin-bottom: 10px;">
+        <label for="Tensanpham" style="width: 100px; display: inline-block;">Tên sản phẩm</label>
+        <input type="text" name="Tensanpham" value="@Model.Tensanpham" class="form-control" style="width: 200px; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="Tenloai" style="width: 100px; display: inline-block;">Tên loại</label>
+        <input type="text" name="Tenloai" value="@Model.Tenloai" class="form-control" style="width: 200px; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="Gioithieu" style="width: 100px; display: inline-block;">Giới thiệu</label>
+        <input type="text" name="Gioithieu" value="@Model.Gioithieu" class="form-control" style="width: 200px; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="Gia" style="width: 100px; display: inline-block;">Giá</label>
+        <input type="text" name="Gia" value="@Model.Gia" class="form-control" style="width: 200px; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="imageFile" style="width: 100px; display: inline-block;">Link ảnh</label>
+        <input type="file" name="imageFile" class="form-control" style="width: 200px; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="nameimg" style="width: 100px; display: inline-block;">Link ảnh</label>
+        <input type="text" name="nameimg" class="form-control" style="width: 200px; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Lưu sửa đổi</button>
+</form>
+

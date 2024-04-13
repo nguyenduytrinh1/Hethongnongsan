@@ -1,0 +1,73 @@
+﻿@model List<Hethongnongsan.Models.Forum>
+@{
+    ViewBag.Title = "addForum";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+    ViewBag.idnguoidung = Request.Cookies["nguoidung"]?.Value.Replace("=", "");
+}
+<div style="margin-top:200px;margin-left:600px;margin-bottom:50px">
+    @if (ViewBag.idnguoidung == "1")
+    {
+        <h2>Nhập nội dung bài đăng</h2>
+        <form action="/Forum/addForum/" method="post">
+            <label for="context">Nội dung:</label><br>
+            <textarea id="context" name="context" rows="4" cols="50"></textarea><br><br>
+            <input type="submit" value="Đăng bài">
+        </form>
+    }
+else
+            {
+        <h1> Diễn đàng</h1>
+            }
+        @{ foreach (var Item in Model)
+            {
+                if (ViewBag.idnguoidung == "1")
+                {
+                    <div style="margin-bottom:10px">
+                        <div>
+                            <div>
+
+                            </div>
+                        </div>
+                        <div style="border:1px solid #000000; margin-top:20px; width:300px;border-radius:10px">
+                            <div style="margin-left:10px;margin-top:10px">
+                                <div>
+                                    <div>Admin đã đăng vào lúc @Item.Ngaydang</div>
+                                    <div>
+                                        <a href="https://localhost:44345/Forum/editForum/@Item.Iddiendang" style="border:1px solid #000000;background-color:#808080;color:aliceblue;border-radius:10px">Chỉnh sửa</a>
+                                        <a href="https://localhost:44345/Forum/deleteForum/@Item.Iddiendang">Xóa bài đăng</a>
+                                    </div>
+                                </div>
+                                <div style="padding-top:20px;padding-left:10px;padding-right:10px;padding-bottom:10px">
+                                    @Item.Context
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div style="margin-bottom:10px">
+                        <div>
+                            <div>
+
+                            </div>
+                        </div>
+                        <div style="border:1px solid #000000; margin-top:20px; width:300px;border-radius:10px">
+                            <div style="margin-left:10px;margin-top:10px">
+                                <div>
+                                    <div>Admin đã đăng vào lúc @Item.Ngaydang</div>
+                                    <div>
+
+                                    </div>
+                                </div>
+                                <div style="padding-top:20px;padding-left:10px;padding-right:10px;padding-bottom:10px">
+                                    @Item.Context
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    </div>
+

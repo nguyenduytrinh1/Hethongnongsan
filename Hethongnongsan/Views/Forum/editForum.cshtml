@@ -1,0 +1,16 @@
+﻿@model Hethongnongsan.Models.Forum
+@{
+    ViewBag.Title = "editForum";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+}
+
+<div style="margin-top:200px;margin-left:500px">
+    <h2>Sửa đổi nội dung bài đăng</h2>
+    <form action="/Forum/editForum" method="post">
+        <label for="context">Nội dung:</label><br>
+        <input name="Iddiendang" type="hidden" value="@Model.Iddiendang"/>
+        <textarea id="context" name="context" rows="4" cols="50">@Model.Context</textarea><br><br>
+        <input type="submit" value="Đăng bài">
+    </form>
+</div>
+

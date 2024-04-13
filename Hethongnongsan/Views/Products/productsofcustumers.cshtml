@@ -1,0 +1,203 @@
+﻿
+@{
+    ViewBag.Title = "productsofcustumers";
+    Layout = "~/Views/Shared/_Layoutshopcart.cshtml";
+    ViewBag.idnguoidung = Request.Cookies["nguoidung"]?.Value.Replace("=", ""); ;
+
+}
+@model List<Hethongnongsan.Models.Shopcart>
+@*<h2>Your Products</h2>
+    <section class="features" id="features" style="height: 600px;">
+        <form action="/Products/Detail/Search/@ViewBag.idnguoidung" class="d-flex flex-row align-items-center flex-wrap" style="margin-top:100px">
+            <div style="margin-top: 100px;">
+                <label for="search" class="mx-2 my-1"></label>
+                <input type="search" class="form-control w-auto" id="search" name="tensp">
+                <button type="submit" class="btn btn-primary mx-2">Tim kiem</button>
+            </div>
+        </form>
+        <div class="box-container">
+            <div class="box" style="margin-top: 80px; height: 200px; width: 1200px;">
+                <table class="table">
+                    <tr>
+                        <th>Ten san pham</th>
+                        <th>Gia</th>
+                        <th>So luong</th>
+                        <th>Tong tien</th>
+                    </tr>
+                    @{ int i = 0; }
+                    @foreach (var item in ViewBag.shopcart)
+                    {
+                <tr>
+                    @foreach (var isa in ViewBag.sanpham)
+                    {
+                        if (item.Idsanpham == isa.Idsanpham)
+                        {
+                            <td>@isa.Tensanpham</td>
+                            <td>@isa.Gia</td>
+                            <td>@item.Soluong</td>
+                            <td>$11.98</td>
+                            <td><a href="/Products/Delete?idnguoidung=@ViewBag.idnguoidung&idshopcart=@item.Idshopcart">Xoá</a></td>
+                            break;
+                        }
+                    }
+                </tr>
+                        i++;
+                    }
+
+                </table>
+                <a href="https://localhost:44345/Home/Index">Quay lai</a>
+            </div>
+
+        </div>
+
+    </section>*@
+@{ if (ViewBag.shopcart.Count > 0 && ViewBag.sanpham.Count > 0)
+    {
+        <div class="cards" style="margin-top:200px;width:1200px;margin-left:160px;margin-bottom:200px;">
+            <form action="/Products/Detail/Search/@ViewBag.idnguoidung" class="d-flex flex-row align-items-center flex-wrap">
+                <div style="display:flex">
+                    <label for="search" class="mx-2 my-1"></label>
+                    <input style="height:20px;margin-top:30px" type="search" class="form-control w-auto" id="search" name="tensp">
+                    <button type="submit" class="btn btn-primary mx-2">Tim kiem</button>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col"><h4><b style="margin-left:-120px; font-size:20px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ">Shopping Cart</b></h4></div>
+                            <div class="col align-self-center text-right text-muted" style="margin-left:-30px; font-size:20px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">So luong</div>
+                        </div>
+                    </div>
+                    @{ int i = 0; float total = 0; float sp = 0; string listidsp = "";  string listidshopcart = ""; string dayNow = DateTime.Now.Date.ToString("MM-dd-yyyy"); string tensp = ""; int idshop=0;
+                    }
+                    @foreach (var item in ViewBag.shopcart)
+                        {
+                            listidshopcart = listidshopcart + item.Idshopcart + ",";
+                            foreach (var isa in ViewBag.sanpham)
+                            {
+                                if (item.Idsanpham == isa.Idsanpham)
+                                {
+                                    sp = 0;
+                                    sp = item.Soluong * (float)isa.Gia;
+                                    total = total + sp;
+                                    listidsp = listidsp + item.Idsanpham + ",";
+                                    tensp = tensp + isa.Tensanpham + ",";
+                                <div class="row">
+                                    <div class="row main align-items-center">
+                                        <div class="col-2"><img class="img-fluid" src="~/img/@isa.Linkhinhanh"></div>
+                                        <div class="col">
+                                            <div class="row text-muted" style="margin-left:20px; font-size:20px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ">@isa.Tensanpham</div>
+                                            <div class="row" style="margin-left:20px; font-size:20px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ">Cotton T-shirt</div>
+                                        </div>
+                                        <div class="col" style="margin-left:100px;">
+                                            <div href="#" class="" style="font-size:20px;color:black">@item.Soluong</div>
+                                        </div>
+                                        <div class="col">
+                                            <a style="font-size:20px;color:black" href="/Products/Delete?idnguoidung=@ViewBag.idnguoidung&idshopcart=@item.Idshopcart">Xoá</a>
+                                        </div>
+                                        @* <div class="col">&euro; @item.Gia <span class="close">&#10005;</span></div>*@
+
+                                    </div>
+
+                                </div>
+                                break;
+                            }
+                        }
+                        i++;
+                    }
+
+
+
+                    @*<div class="row border-top border-bottom">
+                            <div class="row main align-items-center">
+                                <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                                <div class="col">
+                                    <div class="row text-muted">Shirt</div>
+                                    <div class="row">Cotton T-shirt</div>
+                                </div>
+                                <div class="col">
+                                    <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                                </div>
+                                <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row main align-items-center">
+                                <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                                <div class="col">
+                                    <div class="row text-muted">Shirt</div>
+                                    <div class="row">Cotton T-shirt</div>
+                                </div>
+                                <div class="col">
+                                    <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                                </div>
+                                <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                            </div>
+                        </div>
+                        <div class="row border-top border-bottom">
+                            <div class="row main align-items-center">
+                                <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
+                                <div class="col">
+                                    <div class="row text-muted">Shirt</div>
+                                    <div class="row">Cotton T-shirt</div>
+                                </div>
+                                <div class="col">
+                                    <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                                </div>
+                                <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                            </div>
+                        </div>*@
+                    <div class="back-to-shop" style="font-size:20px">
+                        <a href="https://localhost:44345/Home/Index">&leftarrow;</a>
+                        <a href="https://localhost:44345/Home/Index" class="text-muted" style="font-size:10px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ">Back to shop</a>
+                    </div>
+                </div>
+                <div class="col-md-4 summary" style="display:flex;justify-content:center;align-items:center;">
+                    <div style="width:300px">
+                        <div><h5><b style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:20px;">Summary</b></h5></div>
+                        <hr>
+                        <div class="row">
+                            <div class="col" style="padding-left:0;"></div>
+                            <div class="col text-right"></div>
+                        </div>
+                        <form action="/Sold/soldpro" method="post">
+                            <p>SHIPPING</p>
+                            <input type="text" name="Diachi" placeholder="Adress">
+
+                            @*<p>GIVE CODE</p>
+        <input id="code" placeholder="Enter your code">*@
+                            <input type="hidden" name="Idnguoimua" value="@ViewBag.idnguoidung">
+                            <input type="hidden" name="Idshop" value="@ViewBag.shopcart[0].Idshopcart">
+                            <input type="hidden" name="Tensanpham" value="@tensp">
+                            <input type="hidden" name="Idsp" value="@listidsp">
+                            <input type="hidden" name="Ngayban" value="@dayNow">
+                            <input type="hidden" name="Idshopcart" value="@listidshopcart">
+                            <input type="hidden" name="Tongtien" value="@total">
+                            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                                <div class="col">TOTAL PRICE</div>
+                                <div class="col text-right">&euro; @total</div>
+                            </div>
+                            <button class="btn">BUY NOW</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+else
+            {
+<div style="margin-top: 100px; height: 100%; background-image: url(../../img/no-product.png); background-repeat: no-repeat; background-position: center center;">
+ 
+</div>
+<div>
+    
+</div>
+<div style="margin-bottom: 100px">
+    <div style="font-size:20px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-left:600px;margin-bottom:50px">
+        Không tìm thấy sản phẩm nào trong giỏ hàng
+    </div>
+    <a href="/Home/Index" style="font-size:20px;margin-left:730px;">⟲ Quay lại </a>
+</div>
+            }
+}

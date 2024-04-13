@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="container" class="container">
+        <!-- FORM SECTION -->
+        <div class="row">
+            <!-- SIGN UP -->
+                <div class="col align-items-center flex-col sign-up">
+                    <div class="form-wrapper align-items-center">
+                        <div class="form sign-up">
+                            <form action="/Login/Index" method="post">
+                                <div class="input-group">
+                                    <i class='bx bx-mail-send'></i>
+                                    <input type="text" placeholder="Your Name"  name="Tennguoidung">
+                                </div>
+                                <div class="input-group">
+                                    <i class='bx bxs-user'></i>
+                                    <input type="text" placeholder="Username" name="Taikhoan">
+                                </div>
+                                <div class="input-group">
+                                    <i class='bx bxs-lock-alt'></i>
+                                    <input type="password" placeholder="Password" name="Matkhau">
+                                </div>
+                                <div class="input-group">
+                                    <i class='bx bxs-lock-alt'></i>
+                                    <input type="password" placeholder="Confirm password">
+                                </div>
+                                <button>
+                                    Đăng kí
+                                </button>
+
+                                <p>
+                                    <span>
+                                        Bạn co sẳn sàng để tạo một tai khoản?
+                                    </span>
+                                    <b onclick="toggle()" class="pointer">
+                                        Đăng nhập tại đây
+                                    </b>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            <!-- END SIGN UP -->
+            <!-- SIGN IN -->
+            <div class="col align-items-center flex-col sign-in">
+                <div class="form-wrapper align-items-center">
+                    <div class="form sign-in">
+                        <form action="/Login/Process" method="post">
+                            <div class="input-group">
+                                <i class='bx bxs-user'></i>
+                                <input type="text" placeholder="Username" name="username">
+                            </div>
+                            <div class="input-group">
+                                <i class='bx bxs-lock-alt'></i>
+                                <input type="password" placeholder="Password" name="password">
+                            </div>
+                            <button>
+                                Đăng nhập
+                            </button>
+                            <p>
+                                <b>
+                                    Quên mật khẩu?
+                                </b>
+                            </p>
+                            <p>
+                                <span>
+                                    Bạn chưa có tài khoản?
+                                </span>
+                                <b onclick="toggle()" class="pointer">
+                                    Đăng ký tại đây
+                                </b>
+                            </p>
+                         </form >
+                    </div>
+                </div>
+                <div class="form-wrapper">
+
+                </div>
+            </div>
+            <!-- END SIGN IN -->
+        </div>
+    <!-- END FORM SECTION -->
+    <!-- CONTENT SECTION -->
+    <div class="row content-row">
+        <!-- SIGN IN CONTENT -->
+        <div class="col align-items-center flex-col">
+            <div class="text sign-in">
+                <h2>
+                    Welcome
+                </h2>
+
+            </div>
+            <div class="img sign-in">
+
+            </div>
+        </div>
+        <!-- END SIGN IN CONTENT -->
+        <!-- SIGN UP CONTENT -->
+        <div class="col align-items-center flex-col">
+            <div class="img sign-up">
+
+            </div>
+            <div class="text sign-up">
+                <h2>
+                    Join with us
+                </h2>
+
+            </div>
+        </div>
+        <!-- END SIGN UP CONTENT -->
+    </div>
+    <!-- END CONTENT SECTION -->
+</div>

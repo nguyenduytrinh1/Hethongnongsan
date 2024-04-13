@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Updateprofiles";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+    ViewBag.idnguoidung = Request.Cookies["nguoidung"]?.Value.Replace("=", "");
+}
+<form action="/Profilesuser/Updateprofiles" method="post" style="margin-top:100px">
+    <input type="hidden" name="Idnguoidung" value="@ViewBag.idnguoidung" />
+    <div>
+        <div>
+            <label for="tennguoidung">Tên người dùng:</label>
+            <input type="text" id="tennguoidung" name="tennguoidung" />
+        </div>
+        <div>
+            <label for="diachi">Địa chỉ:</label>
+            <input type="text" id="diachi" name="diachi" />
+        </div>
+        <div>
+            <label for="gioitinh">Giới tính:</label>
+            <input type="text" id="gioitinh" name="gioitinh" />
+        </div>
+
+        <div>
+            <label for="TaiKhoan">Tài khoản:</label>
+            <input type="text" id="TaiKhoan" name="TaiKhoan" />
+        </div>
+        <div>
+            <label for="MatKhau">Mật khẩu:</label>
+            <input type="text" id="MatKhau" name="MatKhau" />
+        </div>
+        <div>
+            <label for="sodienthoai">Số điện thoại:</label>
+            <input type="text" id="sodienthoai" name="sodienthoai" />
+        </div>
+        <div>
+            <label for="ngaysinh">Ngày sinh:</label>
+            <input type="text" id="ngaysinh" name="ngaysinh" />
+        </div>
+    </div>
+    <button type="submit">Chỉnh sửa</button>
+</form>
+

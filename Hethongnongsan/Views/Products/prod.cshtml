@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "prod";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+    ViewBag.idnguoidung = Request.Cookies["nguoidung"]?.Value.Replace("=", ""); ;
+
+}
+
+<section class="features" id="features" style="height: 600px; margin-top:200px;margin-left:250px">
+    <div class="box-container">
+        <div class="box" style="margin-top: 80px; height: 200px; width: 400px;">
+            <img src="~/img/@ViewBag.linkanh" alt="Product Image">
+            <h3>@ViewBag.Tensp</h3>
+            <p>@ViewBag.tl</p>
+
+        </div>
+        <div>
+            <p style="z-index: 999; font-size: 35px; margin-top: 100px;">predict</p>
+            <p style="margin:10px">@ViewBag.Gt</p>
+            <p  style="margin:10px">Price : @ViewBag.pri</p>
+
+            <form action="/Products/Add">
+                <input type="hidden" name="idnguoidung" value=@ViewBag.idnguoidung>
+                <input type="hidden" name="idsanpham" value="@ViewBag.id">
+                <input type="hidden" name="idshop" value="@ViewBag.idshop">
+                <label for="quantity">Số lượng:</label>
+                <input type="number" name="soluong" min="1" value="1">
+                <button type="submit">Add Cart</button>
+            </form>
+        </div>
+
+    </div>
+    <div style="margin-top: 50px;">
+        <p>contact</p>
+        <p>....</p>
+    </div>
+</section>
+@*
+    <div class="card">
+        <div class="left">
+            <img src="~/img/@ViewBag.linkanh" alt="shoe" style="width:100px;">
+            <i class="fa fa-long-arrow-left"></i>
+            <i class="fa fa-long-arrow-right"></i>
+        </div>
+
+            <input type="hidden" name="idnguoidung" value=@ViewBag.idnguoidung>
+            <input type="hidden" name="idsanpham" value="@ViewBag.id">
+            <div class="right">
+                <div class="product-info">
+                    <div class="product-name">
+                        <h1>Airmax</h1>
+                        <i class="fa fa-search"></i>
+                        <i class="fa fa-user"></i>
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="details">
+                        <h3>@ViewBag.Tensp</h3>
+                        <h2>@ViewBag.tl</h2>
+                        <p>@ViewBag.Gt</p>
+                        <h4><span class="fa fa-dollar"></span>@ViewBag.pri</h4>
+                        <h4 class="dis"><span class="fa fa-dollar"></span>200</h4>
+                    </div>
+                    <ul>
+                        <li>SIZE</li>
+                        <li class="bg">7</li>
+                        <li class="bg">8</li>
+                        <li class="bg">9</li>
+                        <li class="bg">10</li>
+                        <li class="bg">11</li>
+                    </ul>
+                        <label for="quantity">Số lượng:</label>
+                        <input type="number" name="soluong" min="1" value="1">
+                    <span class="foot"><i class="fa fa-shopping-bag"></i>Buy Now</span>
+                </div>
+            </div>
+    </div>*@
+@*<div class="card" style="position:initial;margin-top:200px; margin-bottom:100px;" >
+    <div class="left" style="margin-left:-300px;">
+        <img src="~/img/@ViewBag.linkanh" alt="shoe" style="width:250px;height:250px; margin-left:50px;margin-top:-30px">
+        <i class="fa fa-long-arrow-left"></i>
+        <i class="fa fa-long-arrow-right"></i>
+    </div>
+    <div class="right">
+        <div class="product-info">
+            <form action="/Products/Add">
+                <input type="hidden" name="idnguoidung" value=@ViewBag.idnguoidung>
+                <input type="hidden" name="idsanpham" value="@ViewBag.id" />
+                <div class="product-name" style="margin-top:60px;">
+                    <h1 style="color:white">@ViewBag.Tensp</h1>
+                    <i class="fa fa-search"></i>
+                    <i class="fa fa-user"></i>
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <h2 style="color:white">@ViewBag.tl</h2>
+                    <p style="color:white">@ViewBag.Gt</p>
+                    <h4 style="color:white"><span class="fa fa-dollar"></span>@ViewBag.pri</h4>
+                    <h4 class="dis"><span class="fa fa-dollar"></span>200</h4>
+                </div>
+                <ul>        
+                </ul>
+                <label for="quantity" style="color:white; margin-top:50px;">Số lượng:</label>
+                <input  type="number" name="soluong" min="1" value="1">
+                <button  style="background-color: #102d4a; " class="foot"><i class="fa fa-shopping-bag"></i>Buy Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+*@

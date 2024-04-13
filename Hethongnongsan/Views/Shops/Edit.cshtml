@@ -1,0 +1,57 @@
+﻿@model Hethongnongsan.Models.Shop
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Headerpage.cshtml";
+}
+
+<div style="margin-top: 100px;">
+    <form action="/Shops/Edit/@Model.Idshop" method="post" style="margin-top: 100px; display: flex; flex-direction: column; align-items: center; margin-bottom:100px">
+
+        <input type="hidden" name="Idshop" value="@Model.Idshop" />
+
+        <div style="width: 300px;">
+            <div style="margin-bottom: 10px;">
+                <label for="Idchusohuu" style="color: #333;">id chu so huu</label>
+                <input type="text" name="Idchusohuu" value="@Model.Idchusohuu" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="Tenshop" style="color: #333;">ten shop</label>
+                <input type="text" name="Tenshop" value="@Model.Tenshop" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="Ngaythanhlap" style="color: #333;">ngay thanh lap</label>
+                <input type="text" name="Ngaythanhlap" value="@Model.Ngaythanhlap" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="Gioithieu" style="color: #333;">gioi thieu</label>
+                <input type="text" name="Gioithieu" value="@Model.Gioithieu" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="Logo" style="color: #333;">lo go</label>
+                <input type="text" name="Logo" value="@Model.Logo" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="Diachi" style="color: #333;">dia chi</label>
+                <input type="text" name="Diachi" value="@Model.Diachi" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="Sdt" style="color: #333;">sdt</label>
+                <input type="text" name="Sdt" value="@Model.Sdt" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="Email" style="color: #333;">email</label>
+                <input type="text" name="Email" value="@Model.Email" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="Facebook" style="color: #333;">face</label>
+                <input type="text" name="Facebook" value="@Model.Facebook" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="Instagram" style="color: #333;">ins</label>
+                <input type="text" name="Instagram" value="@Model.Instagram" style="width: 100%; border: 1px solid #ccc; padding: 8px; box-sizing: border-box; border-radius: 4px;" />
+            </div>
+        </div>
+
+        <button type="submit" style="margin-top: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">Lưu sửa đổi</button>
+    </form>
+</div>
